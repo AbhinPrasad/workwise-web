@@ -26,13 +26,13 @@ const MainNavbar = () => {
           <div className="mr-6 hidden lg:flex lg:flex-1 lg:justify-end">
             <div className="flex items-center gap-4">
               <Link
-                href="#"
+                href="/signup"
                 className="px-6 py-2.5 text-xl bg-blue-600 text-white font-medium rounded-full shadow-md hover:bg-blue-700 transition"
               >
                 Get It Free
               </Link>
               <div className="h-6 w-px bg-gray-300"></div>
-              <Link href="#" className="text-xl font-medium text-gray-900">
+              <Link href="/login" className="text-xl font-medium text-gray-900">
                 Sign in <span aria-hidden="true">&rarr;</span>
               </Link>
             </div>
