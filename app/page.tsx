@@ -1,5 +1,7 @@
+import MainNavbar from "@/components/main-nav"
+
 const Home = () => {
-  return <div>Home</div>
+  return <MainNavbar />
 }
 
 export default Home
