@@ -1,26 +1,141 @@
-@import "tailwindcss";
-
+/* Global Styles */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-primary: "Poppins", sans-serif;
+  --color-primary: #007bff;
+  --color-secondary: #6c757d;
+  --color-background: #f8f9fa;
+  --color-light: #ffffff;
+  --color-dark: #343a40;
+  --color-border: #dee2e6;
+  --radius: 8px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Body Styling */
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-background);
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Buttons */
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+button.primary {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+}
+
+button.secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Forms */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+/* Navigation */
+.navbar {
+  background-color: var(--color-light);
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--color-dark);
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.navbar a:hover {
+  color: var(--color-primary);
+}
+
+/* Cards */
+.card {
+  background: var(--color-light);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Footer */
+.footer {
+  background: var(--color-dark);
+  color: var(--color-light);
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
 }
