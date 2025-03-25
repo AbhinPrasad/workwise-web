@@ -1,7 +1,7 @@
-import AuthCard from "@/components/auth-card"
+import AuthForm from "@/components/auth-form"
 
 const Signup = () => {
-  return <AuthCard isLogin={false} />
+  return <AuthForm isLogin={false} />
 }
 
 export default Signup

@@ -7,7 +7,7 @@ import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import WtoolTip from "./w-tooltip"
 
-const AuthCard = ({ isLogin }: { isLogin: boolean }) => {
+const AuthForm = ({ isLogin }: { isLogin: boolean }) => {
   return (
     <form>
       <div className="mt-4">
@@ -92,4 +92,4 @@ const AuthCard = ({ isLogin }: { isLogin: boolean }) => {
   )
 }
 
-export default AuthCard
+export default AuthForm
