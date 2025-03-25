@@ -1,7 +1,7 @@
 import Image from "next/image"
-import Link from "next/link"
-import { Info } from "lucide-react"
 
+import AuthFooter from "./auth-footer"
+import TermsAndConditions from "./auth-terms"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
@@ -17,21 +17,7 @@ const AuthCard = ({ isLogin }: { isLogin: boolean }) => {
         <Input type="email" placeholder="Enter your email" className="w-full" />
       </div>
 
-      {/* Terms & Conditions */}
-      {!isLogin && (
-        <p className="text-xs text-gray-500 mt-3 text-center">
-          By signing up, I accept the{" "}
-          <span className="font-codec font-bold">workwise</span>{" "}
-          <Link href="#" className="text-blue-600 hover:underline">
-            Terms of Service{" "}
-          </Link>
-          and acknowledge the{" "}
-          <Link href="#" className="text-blue-600 hover:underline">
-            Privacy Policy
-          </Link>
-          .
-        </p>
-      )}
+      {!isLogin && <TermsAndConditions />}
 
       {isLogin && (
         <div className="flex items-center mt-3 space-x-2">
@@ -43,7 +29,6 @@ const AuthCard = ({ isLogin }: { isLogin: boolean }) => {
         </div>
       )}
 
-      {/* Signup Button */}
       <Button className="w-full mt-4 bg-blue-600 text-white hover:bg-blue-700">
         {isLogin ? "Continue" : "Sign Up"}
       </Button>
@@ -102,27 +87,7 @@ const AuthCard = ({ isLogin }: { isLogin: boolean }) => {
         </Button>
       </div>
 
-      {!isLogin && (
-        <p className="text-sm text-center mt-4">
-          Already have a <span className="font-codec font-bold">workwise</span>{" "}
-          account?{" "}
-          <Link href="/login" className="text-blue-600 hover:underline">
-            Log in
-          </Link>
-        </p>
-      )}
-
-      {isLogin && (
-        <div className="flex items-center justify-center mt-4 space-x-2 text-sm">
-          <Link href="#" className="text-blue-600 hover:underline">
-            Can't log in?
-          </Link>
-          <span className="text-gray-400">•</span>
-          <Link href="/signup" className="text-blue-600 hover:underline">
-            Create an account
-          </Link>
-        </div>
-      )}
+      <AuthFooter isLogin={isLogin} />
     </form>
   )
 }
