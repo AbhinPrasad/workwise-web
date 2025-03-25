@@ -1,5 +1,7 @@
+import AuthCard from "@/components/auth-card"
+
 const Login = () => {
-  return <div>Login</div>
+  return <AuthCard isLogin={true} />
 }
 
 export default Login
