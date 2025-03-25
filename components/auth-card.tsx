@@ -5,12 +5,7 @@ import { Info } from "lucide-react"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "./ui/tooltip"
+import WtoolTip from "./w-tooltip"
 
 const AuthCard = ({ isLogin }: { isLogin: boolean }) => {
   return (
@@ -44,21 +39,7 @@ const AuthCard = ({ isLogin }: { isLogin: boolean }) => {
           <Label htmlFor="rememberMe" className="text-sm text-gray-700">
             Remember me
           </Label>
-
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Info className="h-4 w-4 text-gray-500 cursor-pointer" />
-              </TooltipTrigger>
-              <TooltipContent
-                side="right"
-                className="bg-gray-700 text-white text-xs px-3 py-2 rounded-md shadow-lg w-70"
-              >
-                We remember your account information <br />
-                for the next time you log in.
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <WtoolTip />
         </div>
       )}
 
@@ -67,7 +48,6 @@ const AuthCard = ({ isLogin }: { isLogin: boolean }) => {
         {isLogin ? "Continue" : "Sign Up"}
       </Button>
 
-      {/* Social Login */}
       <p className="text-sm text-gray-600 text-center mt-4">
         Or continue with:
       </p>
