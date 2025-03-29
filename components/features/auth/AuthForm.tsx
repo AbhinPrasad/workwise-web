@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 
 import { signUpByEmail } from "@/lib/actions/auth.action"
@@ -12,9 +12,21 @@ import { Label } from "../../ui/label"
 import AuthFooter from "./AuthFooter"
 import TermsAndConditions from "./AuthTerms"
 
-const AuthForm = ({ isLogin }: { isLogin: boolean }) => {
-  const [email, setEmail] = useState<string | null>(null)
-  const [password, setPassword] = useState<string | null>(null)
+const AuthForm = ({
+  isLogin,
+  userEmail,
+}: {
+  isLogin: boolean
+  userEmail?: string
+}) => {
+  const [email, setEmail] = useState<string>("")
+  const [password, setPassword] = useState<string>("")
+
+  useEffect(() => {
+    if (isLogin && userEmail) {
+      setEmail(userEmail)
+    }
+  }, [isLogin, userEmail])
 
   return (
     <form action={signUpByEmail}>
@@ -27,6 +39,7 @@ const AuthForm = ({ isLogin }: { isLogin: boolean }) => {
           type="email"
           placeholder="Enter your email"
           className="w-full"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
@@ -57,7 +70,7 @@ const AuthForm = ({ isLogin }: { isLogin: boolean }) => {
 
       <Button
         type="submit"
-        className="w-full mt-4 bg-blue-600 text-white hover:bg-blue-700"
+        className="w-full mt-4 bg-blue-600 text-white hover:bg-blue-700 hover:cursor-pointer"
       >
         {isLogin ? "Continue" : "Sign Up"}
       </Button>

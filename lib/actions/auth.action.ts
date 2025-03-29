@@ -1,5 +1,6 @@
 "use server"
 
+import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 import {
   createUserWithEmailAndPassword,
@@ -17,8 +18,19 @@ export const signUpByEmail = async (formData: FormData) => {
     email,
     password
   )
+  const CookieStore = await cookies()
+  CookieStore.set("AUTH_USER_EMAIL", email, {
+    maxAge: 60 * 60,
+    secure: false,
+    path: "/",
+    sameSite: "lax",
+  })
   const user = userCredentials.user
-  await sendEmailVerification(user)
+  const actionCodeSettings = {
+    url: "http://localhost:3000/email-verification-success", // Redirect URL after verification
+    handleCodeInApp: true, // If you want to handle it within your app
+  }
+  await sendEmailVerification(user, actionCodeSettings)
   redirect(`/verify-email?email=${email}`)
 }
 
