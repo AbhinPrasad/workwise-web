@@ -1,11 +1,11 @@
 import Image from "next/image"
 
-import AuthFooter from "./auth-footer"
-import TermsAndConditions from "./auth-terms"
-import { Button } from "./ui/button"
-import { Input } from "./ui/input"
-import { Label } from "./ui/label"
-import WtoolTip from "./w-tooltip"
+import { Button } from "../../ui/button"
+import WtoolTip from "../../ui/custom/WToolTip"
+import { Input } from "../../ui/input"
+import { Label } from "../../ui/label"
+import AuthFooter from "./AuthFooter"
+import TermsAndConditions from "./AuthTerms"
 
 const AuthForm = ({ isLogin }: { isLogin: boolean }) => {
   return (

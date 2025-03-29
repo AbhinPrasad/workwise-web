@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-const MainNavbar = () => {
+const Navbar = () => {
   return (
     <div>
       <header className="absolute inset-x-0 top-0 z-50 bg-white">
@@ -43,4 +43,4 @@ const MainNavbar = () => {
   )
 }
 
-export default MainNavbar
+export default Navbar

@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import AuthText from "@/components/auth-text"
+import AuthText from "@/components/features/auth/AuthText"
 
 export default async function AuthLayout({
   children,

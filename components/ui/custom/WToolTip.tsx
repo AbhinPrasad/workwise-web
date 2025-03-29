@@ -5,7 +5,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "./ui/tooltip"
+} from "../tooltip"
 
 export default function WtoolTip({
   content,

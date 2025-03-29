@@ -1,4 +1,4 @@
-import AuthForm from "@/components/auth-form"
+import AuthForm from "@/components/features/auth/AuthForm"
 
 const Signup = () => {
   return <AuthForm isLogin={false} />
