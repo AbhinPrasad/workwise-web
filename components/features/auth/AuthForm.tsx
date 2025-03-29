@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 
-import { signUpByEmail } from "@/lib/actions/auth.action"
+import { signInByEmail, signUpByEmail } from "@/lib/actions/auth.action"
 
 import { Button } from "../../ui/button"
 import WtoolTip from "../../ui/custom/WToolTip"
@@ -29,7 +29,7 @@ const AuthForm = ({
   }, [isLogin, userEmail])
 
   return (
-    <form action={signUpByEmail}>
+    <form action={isLogin ? signInByEmail : signUpByEmail}>
       <div className="mt-4">
         <Label className="block text-gray-700 text-sm font-medium mb-1">
           Email Address
