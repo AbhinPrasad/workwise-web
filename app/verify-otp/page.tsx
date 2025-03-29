@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 import { Button } from "@/components/ui/button"
-import OtpInput from "@/components/otp-input"
+import OtpInput from "@/components/ui/custom/WOtpInput"
 
 const OtpVerification = () => {
   return (

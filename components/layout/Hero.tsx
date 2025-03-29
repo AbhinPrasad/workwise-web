@@ -4,10 +4,10 @@ import { motion } from "framer-motion"
 import { BsMicrosoft } from "react-icons/bs"
 import { FcGoogle } from "react-icons/fc"
 
-import { Button } from "./ui/button"
-import { Input } from "./ui/input"
+import { Button } from "../ui/button"
+import { Input } from "../ui/input"
 
-const MainHero = () => {
+const Hero = () => {
   return (
     <section className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-20 py-16 bg-gradient-to-b  text-white min-h-screen">
       <motion.div
@@ -61,4 +61,4 @@ const MainHero = () => {
   )
 }
 
-export default MainHero
+export default Hero

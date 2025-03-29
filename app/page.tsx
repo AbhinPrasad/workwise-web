@@ -1,12 +1,12 @@
-import MainHero from "@/components/main-hero"
-import MainNavbar from "@/components/main-nav"
+import Hero from "@/components/layout/Hero"
+import Navbar from "@/components/layout/Navbar"
 
 const Home = () => {
   return (
     <>
-      <MainNavbar />
+      <Navbar />
       <main>
-        <MainHero />
+        <Hero />
       </main>
     </>
   )
