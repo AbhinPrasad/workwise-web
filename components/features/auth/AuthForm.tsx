@@ -1,4 +1,9 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
+
+import { signUpByEmail } from "@/lib/actions/auth.action"
 
 import { Button } from "../../ui/button"
 import WtoolTip from "../../ui/custom/WToolTip"
@@ -8,13 +13,34 @@ import AuthFooter from "./AuthFooter"
 import TermsAndConditions from "./AuthTerms"
 
 const AuthForm = ({ isLogin }: { isLogin: boolean }) => {
+  const [email, setEmail] = useState<string | null>(null)
+  const [password, setPassword] = useState<string | null>(null)
+
   return (
-    <form>
+    <form action={signUpByEmail}>
       <div className="mt-4">
         <Label className="block text-gray-700 text-sm font-medium mb-1">
           Email Address
         </Label>
-        <Input type="email" placeholder="Enter your email" className="w-full" />
+        <Input
+          name="email"
+          type="email"
+          placeholder="Enter your email"
+          className="w-full"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <div className="mt-2">
+        <Label className="block text-gray-700 text-sm font-medium mb-1">
+          Password
+        </Label>
+        <Input
+          name="password"
+          type="password"
+          placeholder="Enter your password"
+          className="w-full"
+          onChange={(e) => setPassword(e.target.value)}
+        />
       </div>
 
       {!isLogin && <TermsAndConditions />}
@@ -29,7 +55,10 @@ const AuthForm = ({ isLogin }: { isLogin: boolean }) => {
         </div>
       )}
 
-      <Button className="w-full mt-4 bg-blue-600 text-white hover:bg-blue-700">
+      <Button
+        type="submit"
+        className="w-full mt-4 bg-blue-600 text-white hover:bg-blue-700"
+      >
         {isLogin ? "Continue" : "Sign Up"}
       </Button>
 

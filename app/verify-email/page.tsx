@@ -1,9 +1,15 @@
 import Image from "next/image"
 
 import { Button } from "@/components/ui/button"
-import OtpInput from "@/components/ui/custom/WOtpInput"
+import OpenEmailApp from "@/components/ui/custom/WEmailAppBtn"
 
-const OtpVerification = () => {
+const EmailVerification = async ({
+  searchParams,
+}: {
+  searchParams: { email: string }
+}) => {
+  const email = (await searchParams).email
+
   return (
     <div className="relative flex justify-center items-center min-h-screen bg-gray-100">
       <Image
@@ -35,20 +41,17 @@ const OtpVerification = () => {
         </div>
 
         <h2 className="text-2xl font-semibold text-gray-900">
-          We've emailed you a code
+          We've sent a verification link
         </h2>
         <p className="text-gray-600 mt-2">
-          To complete your account setup, enter the code we've sent to:
+          To complete your account setup, please check your email and click on
+          the verification link sent to:
         </p>
         <p className="font-semibold mt-1 text-gray-700">
-          your.email@example.com
+          {email ?? "your email address"}
         </p>
 
-        <OtpInput />
-
-        <Button className="mt-6 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
-          Verify
-        </Button>
+        <OpenEmailApp />
 
         <p className="mt-4 text-sm text-gray-600">
           Didn't receive an email?{" "}
@@ -74,4 +77,4 @@ const OtpVerification = () => {
   )
 }
 
-export default OtpVerification
+export default EmailVerification
